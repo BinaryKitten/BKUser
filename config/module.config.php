@@ -44,8 +44,8 @@ return array(
     ),
     'view_manager' => array(
         'template_map' => array(
-            'bk-user/auth/login' => __DIR__ . '/../view/rd-user/auth/login.phtml',
-            'bk-user/auth/logout' => __DIR__ . '/../view/rd-user/auth/logout.phtml'
+            'bk-user/auth/login' => __DIR__ . '/../view/bk-user/auth/login.phtml',
+            'bk-user/auth/logout' => __DIR__ . '/../view/bk-user/auth/logout.phtml'
         ),
 
     ),
