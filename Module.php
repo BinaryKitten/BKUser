@@ -5,6 +5,7 @@ namespace BKUser;
 use Zend\Authentication\Storage\Session as SessionStorage;
 use BKUser\Authentication\AuthenticationService as BKUserAuthenticationService;
 use Zend\Authentication\Adapter\DbTable\CallbackCheckAdapter as CallbackCheckAuthAdapter;
+use Zend\Http\Request as HttpRequest;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Authentication\Result as AuthenticationResult;
@@ -81,6 +82,12 @@ class Module
 
     public function bootstrapRoutes(MvcEvent $event)
     {
+        $request = $event->getRequest();
+
+        if (!$request instanceof HttpRequest) {
+            return;
+        }
+
         /** @var \Zend\ServiceManager\ServiceManager $serviceManager */
         $serviceManager = $event->getApplication()->getServiceManager();
         $config = $serviceManager->get('bkuser\auth\config');
