@@ -1,0 +1,30 @@
+{
+    "name": "reason-zf2/user",
+    "description": "User Module for Zend Framework 2",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "micro",
+        "zf2"
+    ],
+    "homepage": "http://git.reasondigital.com/zf2/bkuser",
+    "authors": [
+         {
+            "name": "Kathryn Reeve",
+            "email": "kat.reeve@reasondigital.com",
+            "homepage": "http://reasondigital.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "zendframework/zendframework": "2.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "bkuser": "src/"
+        }
+    }
+}
+
