@@ -1,5 +1,5 @@
 {
-    "name": "reason-zf2/user",
+    "name": "binarykitten/bkuser",
     "description": "User Module for Zend Framework 2",
     "type": "library",
     "license": "MIT",
@@ -8,12 +8,12 @@
         "micro",
         "zf2"
     ],
-    "homepage": "http://git.reasondigital.com/zf2/bkuser",
+    "homepage": "https://github.com/BinaryKitten/BKUser",
     "authors": [
          {
             "name": "Kathryn Reeve",
-            "email": "kat.reeve@reasondigital.com",
-            "homepage": "http://reasondigital.com/",
+            "email": "kathryn@binarykitten.com",
+            "homepage": "http://binarykitten.com/",
             "role": "Developer"
         }
     ],
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-0": {
-            "bkuser": "src/"
+            "BKUser": "src/"
         }
     }
 }
