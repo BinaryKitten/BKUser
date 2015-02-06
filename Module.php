@@ -88,31 +88,28 @@ class Module
         $routeConfig = $config['routes'];
 
         /** @var \Zend\Mvc\Router\Http\TreeRouteStack $r */
-        $r = $serviceManager->get('router');
+        $router = $serviceManager->get('router');
 
         /** @var \Zend\Mvc\Router\Http\Literal $loginRoute */
-        $loginRoute = $r->getRoute('bkuser-login');
-        $logoutRoute = $r->getRoute('bkuser-logout');
-//        $loginRoute = $r->getRoute('bkuser-logout');
+        $loginRoute = $router->getRoute('bkuser-login');
+
+        /** @var \Zend\Mvc\Router\Http\Literal $loginRoute */
+        $logoutRoute = $router->getRoute('bkuser-logout');
 
         if ($loginRoute->assemble() != $routeConfig['login']) {
             $newLoginRoute = new LiteralRoute($routeConfig['login'], [
                 "controller" => "BKUser\\Controller\\Auth",
                 "action" => "login"
             ]);
-            $r->addRoute('bkuser-login', $newLoginRoute);
+            $router->addRoute('bkuser-login', $newLoginRoute);
         }
         if ($logoutRoute->assemble() != $routeConfig['logout']) {
             $newLoginRoute = new LiteralRoute($routeConfig['logout'], [
                 "controller" => "BKUser\\Controller\\Auth",
                 "action" => "logout"
             ]);
-            $r->addRoute('bkuser-logout', $newLoginRoute);
+            $router->addRoute('bkuser-logout', $newLoginRoute);
         }
-//        \Zend\Debug\Debug::dump($r->getRoute('bkuser'));
-//        var_dump($r->getRoute('bkuser'));
-//        die();
-//        \Zend\Debug\Debug::dump($r);
     }
 
     public function factory_bkuser_auth_service(ServiceManager $sm)
