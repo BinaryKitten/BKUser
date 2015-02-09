@@ -1,52 +1,42 @@
 <?php
 
-return array(
-    'router' => array(
-        'routes' => array(
-            'bkuser' => array(
-                'type' => "literal",
-                'options' => array(
-                    'route' => '/user/demo',
-                    'defaults' => array(
-                        'controller' => 'BKUser\Controller\Index',
-                        'action' => 'redirecttohome'
-                    )
-                ),
-            ),
+namespace BKUser;
 
-            'bkuser-login' => array(
+return [
+    'router' => [
+        'routes' => [
+            'bkuser-login' => [
                 'type' => 'literal',
-                'options' => array(
+                'options' => [
                     'route' => '/user/login',
-                    'defaults' => array(
-                        'controller' => 'BKUser\Controller\Auth',
+                    'defaults' => [
+                        'controller' => Controller\AuthController::class,
                         'action' => 'login'
-                    )
-                )
-            ),
-            'bkuser-logout' => array(
+                    ]
+                ]
+            ],
+            'bkuser-logout' => [
                 'type' => 'literal',
-                'options' => array(
+                'options' => [
                     'route' => '/user/logout',
-                    'defaults' => array(
-                        'controller' => 'BKUser\Controller\Auth',
+                    'defaults' => [
+                        'controller' => Controller\AuthController::class,
                         'action' => 'logout'
-                    )
-                )
-            )
-        ),
-    ),
-    'controllers' => array(
-        'invokables' => array(
-            'BKUser\Controller\Index' => 'BKUser\Controller\IndexController',
-            'BKUser\Controller\Auth' => 'BKUser\Controller\AuthController'
-        ),
-    ),
-    'view_manager' => array(
-        'template_map' => array(
+                    ]
+                ]
+            ]
+        ],
+    ],
+    'controllers' => [
+        'invokables' => [
+            Controller\AuthController::class => Controller\AuthController::class
+        ],
+    ],
+    'view_manager' => [
+        'template_map' => [
             'bk-user/auth/login' => __DIR__ . '/../view/bk-user/auth/login.phtml',
             'bk-user/auth/logout' => __DIR__ . '/../view/bk-user/auth/logout.phtml'
-        ),
+        ],
 
-    ),
-);
+    ],
+];
