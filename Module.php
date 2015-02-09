@@ -108,14 +108,14 @@ class Module
 
         if ($loginRoute->assemble() != $routeConfig['login']) {
             $newLoginRoute = new LiteralRoute($routeConfig['login'], [
-                "controller" => "BKUser\\Controller\\Auth",
+                "controller" => Controller\AuthController::class,
                 "action" => "login"
             ]);
             $router->addRoute('bkuser-login', $newLoginRoute);
         }
         if ($logoutRoute->assemble() != $routeConfig['logout']) {
             $newLoginRoute = new LiteralRoute($routeConfig['logout'], [
-                "controller" => "BKUser\\Controller\\Auth",
+                "controller" => Controller\AuthController::class,
                 "action" => "logout"
             ]);
             $router->addRoute('bkuser-logout', $newLoginRoute);
