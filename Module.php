@@ -34,6 +34,9 @@ class Module
     public function getServiceConfig()
     {
         return array(
+            'aliases' => array(
+                'Zend\Authentication\AuthenticationService' => 'bkuser\auth\service',
+            ),
             'factories' => array(
                 'bkuser\auth\config' => array($this, 'factory_bkuser_auth_config'),
                 'bkuser\auth\service' => array($this, 'factory_bkuser_auth_service'),
