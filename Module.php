@@ -58,6 +58,7 @@ class Module
             'table' => 'users',
             'identity_column' => 'username',
             'credential_column' => 'password',
+            'form-class' => null,
             'user-entity' => '\bkuser\Model\User',
             'user-entity-hydrator' => '\Zend\Stdlib\Hydrator\ClassMethods',
 
@@ -144,6 +145,15 @@ class Module
 
     public function factory_bkuser_form_login(ServiceManager $sm)
     {
+        $config = $sm->get('bkuser\auth\config');
+
+        if (isset($config['form-class'])) {
+            if (class_exists($config['form-class'])) {
+                return new $config['form-class'];
+            } else {
+                return $sm->get($config['form-class']);
+            }
+        }
         return new Form\Login();
     }
 }
